@@ -70,7 +70,7 @@ Note - A how to use guide will be attached once the project is fully complete.
 
 ## Features and Implementation
 - **Optimized Subgroup Transitions:** Reduced the maximum solution length to 45 moves (from 52 moves) by refining subgroup transitions.
-- **IDA* Algorithm:** Implemented for efficient pathfinding, leveraging heuristic data from pattern databases.
+- **IDA star Algorithm:** Implemented for efficient pathfinding, leveraging heuristic data from pattern databases.
 - **State Modeling:** Modeled cube states across 5 subgroups (G0 to G4), with G4 as the solved state, to generate pattern databases.
 - **Automated Input:** Utilized OpenCV for capturing and processing Rubik's Cube face images.
 - **Efficient Storage:** Optimized state storage using efficient hashing for subgroups:
@@ -92,6 +92,6 @@ Note - A how to use guide will be attached once the project is fully complete.
 ## References
 https://www.jaapsch.net/puzzles/thistle.htm
 
-https://github.com/itaysadeh/rubiks-cube-solver(Help me in understanding G3 state and its implementation)
+https://github.com/itaysadeh/rubiks-cube-solver (Help me in understanding G3 state and its implementation)
 
 https://stackoverflow.com/questions/58860280/how-to-create-a-pattern-database-for-solving-rubiks-cube
