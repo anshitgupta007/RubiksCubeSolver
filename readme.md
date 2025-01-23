@@ -92,6 +92,6 @@ Note - A how to use guide will be attached once the project is fully complete.
 ## References
 https://www.jaapsch.net/puzzles/thistle.htm
 
-https://github.com/itaysadeh/rubiks-cube-solver (Help me in understanding G3 state and its implementation)
+https://github.com/itaysadeh/rubiks-cube-solver (Helped me in understanding G3 state and its implementation)
 
 https://stackoverflow.com/questions/58860280/how-to-create-a-pattern-database-for-solving-rubiks-cube
