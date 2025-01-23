@@ -62,7 +62,10 @@ In this final stage, the cube is separated into 3 edge slices and 2 corner tetra
 3. **G2:** Restore M-slice edges and correct corner orientations.
 4. **G3:** Ensure the cube can be solved using only 180-degree moves.
 5. **G4:** Solve the cube completely.
+
+
 Note - A how to use guide will be attached once the project is fully complete.
+
 ---
 
 ## Features and Implementation
