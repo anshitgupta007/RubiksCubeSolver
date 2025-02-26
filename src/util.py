@@ -27,3 +27,17 @@ def num2char(n):
     elif n == 5:
         return 'O'
     return 'W'
+def color2bgr(color):
+    if color == 'W':
+        return (255, 255, 255)
+    elif color == 'R':
+        return (0, 0, 255)
+    elif color == 'G':
+        return (0, 255, 0)
+    elif color == 'O':
+        return (0, 165, 255)
+    elif color == 'B':
+        return (255, 0, 0)
+    elif color == 'Y':
+        return (0, 255, 255)
+    return (255, 255, 255)

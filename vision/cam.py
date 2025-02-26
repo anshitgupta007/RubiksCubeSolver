@@ -62,12 +62,13 @@ def detect_color(hsv_frame, pos):
     
     return 'W'  # Default to white if no color is detected
 def capturecube():
+    exit=True
     # Initialize webcam
     cap = cv2.VideoCapture(0)
-
+   
     # Storage for the final scanned cube string
     final_cube = ''
-    while True:
+    while exit:
         ret, frame = cap.read()
         if not ret:
             break
@@ -80,15 +81,26 @@ def capturecube():
 
         # String to store detected colors for the current frame
         current_face = ''
-
+        if (len(final_cube)//9) <4:
+            color =util.num2char(len(final_cube)//9)
+            top="R"
+        elif (len(final_cube)//9) ==4:
+            color="R"
+            top="Y"
+        else:
+            color="O"
+            top="W"
+        cv2.putText(frame, f'Align {color} centered face such that {top} face is on top',(10,30),cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 0), 1,cv2.LINE_AA)
+        cv2.putText(frame, "Press 's' to capture face",(10,60),cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 0), 1,cv2.LINE_AA)
         # Draw rectangles and detect colors
         for pos in facelet_positions:
             x, y = pos
             color_label = detect_color(hsv_frame, pos)
             current_face += color_label
-            cv2.rectangle(frame, (x, y), (x+50, y+50), (255, 255, 255), 2)
-            cv2.putText(frame, color_label, (x+5, y+40), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 0), 2)
-
+            cv2.rectangle(frame, (x, y), (x+50, y+50), (255, 255, 255), 1,cv2.LINE_AA)
+            cv2.putText(frame, color_label, (x+10, y+35), cv2.FONT_HERSHEY_SIMPLEX, 1,util.color2bgr(color_label), 2,cv2.LINE_AA)
+        
+     
         # Display the frame with detected colors
         cv2.imshow('Rubik\'s Cube Face Detection', frame)
 
@@ -105,16 +117,20 @@ def capturecube():
 
         # Exit the program when 'q' is pressed
         if cv2.waitKey(1) & 0xFF == ord('q'):
-            print("Exiting program.")
+            exit=True
             break
 
     # Save the final cube string to a file
     cap.release()
     cv2.destroyAllWindows()
+    
 
     return final_cube
 def getcube():
     final_cube = capturecube()
+    if len(final_cube) != 54:
+        print("Program closed successfully.")
+        return None
     mycube = cube.generate()
     for i in range(6):
         for j in range(9):

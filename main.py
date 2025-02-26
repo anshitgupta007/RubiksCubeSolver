@@ -1,10 +1,12 @@
 from src import solver 
 from vision import cam
-from src import cube
 
 
 def main():
+
     mycube = cam.getcube()
+    if mycube is None:
+        return
    
     solver.solve(mycube)
 if __name__ == "__main__":
