@@ -84,8 +84,8 @@ In this final stage, the cube is separated into 3 edge slices and 2 corner tetra
 
 ### Clone the repository  
 ```bash
-git clone https://github.com/yourusername/rubiks-cube-solver.git
-cd rubiks-cube-solver        
+git clone https://github.com/anshitgupta007/RubiksCubeSolver.git
+cd RubiksCubeSolver  
 ```
 
 ### Install dependencies
