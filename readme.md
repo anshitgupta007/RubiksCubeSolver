@@ -64,8 +64,6 @@ In this final stage, the cube is separated into 3 edge slices and 2 corner tetra
 5. **G4:** Solve the cube completely.
 
 
-Note - A how to use guide will be attached once the project is fully complete.
-
 ---
 
 ## Features and Implementation
@@ -81,7 +79,33 @@ Note - A how to use guide will be attached once the project is fully complete.
 - **Performance:** Achieved an average solution of 30 moves with a solve time of 30 ms.
 
 ---
+##  How to Use the Rubik’s Cube Solver
 
+
+### Clone the repository  
+```bash
+git clone https://github.com/yourusername/rubiks-cube-solver.git
+cd rubiks-cube-solver        
+```
+
+### Install dependencies
+```bash 
+pip install -r requirements.txt
+```
+
+### Run the script
+```bash
+python main.py
+```
+Now, follow the solver's instructions to scan the cube. The solver will provide the solution using standard cube notations.  
+
+To learn more about official cube notations, [click here](https://ruwix.com/the-rubiks-cube/notation/).
+
+###  Troubleshooting  
+
+- **Camera not detecting colors properly?** Ensure good lighting and avoid reflections.  
+- **Misalignment issues?** Center the cube properly and ensure a steady hand.  
+- **Wrong solution?** Ensure the correct color order while scanning.  
 
 ## Future Work
 - Implement heuristic improvements for even faster solve times.
