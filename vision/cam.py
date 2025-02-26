@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
-import util
-import cube
+from src import util
+from src import cube
 # Define HSV ranges for Red, Green, Blue, White, Yellow, Orange
 lower = [
      [136, 104, 111],    
@@ -120,4 +120,3 @@ def getcube():
         for j in range(9):
             mycube[i][j] = util.char2num(final_cube[i * 9 + j])
     return mycube
-

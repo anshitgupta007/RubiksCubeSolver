@@ -1,8 +1,7 @@
-import cube
-import hash
-import util
+from src import cube
+from src import hash
 import time
-import cam
+import os
 from collections import defaultdict
 
 
@@ -68,8 +67,8 @@ def ida_star(mycube, lookup_table, solution, stage):
             return False  # No solution exists
         bound = t  # Increase the bound
 
-def main():
-    mycube = cam.getcube()
+def solve(mycube):
+    
     cube.printcube(mycube)
     # Initialize lookup tables
     lookup_table0 = {}
@@ -88,11 +87,11 @@ def main():
         except FileNotFoundError:
             print(f"File {filename} not found.")
         return table
-
-    lookup_table0 = load_lookup_table("G0.txt")
-    lookup_table1 = load_lookup_table("G1.txt")
-    lookup_table2 = load_lookup_table("G2.txt")
-    lookup_table3 = load_lookup_table("G3.txt")
+    data_dir = os.path.join(os.path.dirname(__file__), "..", "data","databases")
+    lookup_table0 = load_lookup_table(os.path.join(data_dir, "G0.txt"))
+    lookup_table1 = load_lookup_table(os.path.join(data_dir, "G1.txt"))
+    lookup_table2 = load_lookup_table(os.path.join(data_dir, "G2.txt"))
+    lookup_table3 = load_lookup_table(os.path.join(data_dir, "G3.txt"))
 
     solution = []
     
@@ -125,8 +124,6 @@ def main():
     cube.printcube(mycube)
     elapsed_time = time.time() - start_time
     print(f"Elapsed time: {elapsed_time:.5f} seconds")
-
-if __name__ == "__main__":
-    main()
+    return solution
 
 
