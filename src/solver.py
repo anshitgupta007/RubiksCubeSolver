@@ -52,10 +52,8 @@ def ida_star(mycube, lookup_table, solution, stage):
                 min_cost = t
 
             solution.pop()
-            # Undo the move
-            cube.apply_moves(state, move)
-            cube.apply_moves(state, move)
-            cube.apply_moves(state, move)
+            # Undo the move directly instead of applying it 3 more times
+            cube.apply_moves(state, cube.INVERSE_MOVES[move])
 
         return min_cost
 
@@ -85,9 +83,16 @@ def solve(mycube):
                     hash_val, depth = map(int, line.split())
                     table[hash_val] = depth
         except FileNotFoundError:
-            print(f"File {filename} not found.")
+            raise FileNotFoundError(
+                f"Pattern database not found at {filename}. "
+                "Solving cannot proceed without it."
+            )
+        if not table:
+            raise ValueError(f"Pattern database at {filename} loaded but is empty.")
         return table
-    data_dir = os.path.join(os.path.dirname(__file__), "..", "data","databases")
+    # NOTE: folder on disk is "Databases" (capital D) -- must match exactly,
+    # since this is case-sensitive on Linux/macOS.
+    data_dir = os.path.join(os.path.dirname(__file__), "..", "data", "Databases")
     lookup_table0 = load_lookup_table(os.path.join(data_dir, "G0.txt"))
     lookup_table1 = load_lookup_table(os.path.join(data_dir, "G1.txt"))
     lookup_table2 = load_lookup_table(os.path.join(data_dir, "G2.txt"))
