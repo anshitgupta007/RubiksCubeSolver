@@ -1,5 +1,5 @@
-from rubiks_solver import cube
-from rubiks_solver import hash
+from . import cube
+from . import hash
 import time
 import os
 from collections import defaultdict
