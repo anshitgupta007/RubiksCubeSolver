@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rubiks-solver"          # check availability on pypi.org first
+version = "0.1.0"
+description = "A Thistlethwaite's algorithm Rubik's cube solver"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {file = "LICENSE"}
+dependencies = [
+    "numpy",
+    "opencv-python",
+    "pytest",
+]
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+rubiks_solver = ["data/databases/*.txt"]
+
+

@@ -1,7 +1,7 @@
 import cv2
 import numpy as np
-from src import util
-from src import cube
+from src.rubiks_solver import util
+from src.rubiks_solver import cube
 # Define HSV ranges for Red, Green, Blue, White, Yellow, Orange
 lower = [
      [136, 104, 111],    

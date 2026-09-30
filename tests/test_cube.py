@@ -2,7 +2,7 @@
 import copy
 import pytest
 
-from src import cube
+from src.rubiks_solver import cube
 
 ALL_MOVES = ["R", "L", "U", "D", "F", "B",
              "R'", "L'", "U'", "D'", "F'", "B'",

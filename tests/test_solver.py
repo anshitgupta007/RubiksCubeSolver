@@ -3,7 +3,7 @@ import random
 
 import pytest
 
-from src import cube, solver
+from src.rubiks_solver import cube, solver
 
 SCRAMBLE_MOVES = ["R", "L", "U", "D", "F", "B",
                    "R'", "L'", "U'", "D'", "F'", "B'",
