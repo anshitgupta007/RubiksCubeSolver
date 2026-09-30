@@ -1,4 +1,4 @@
-from src import solver 
+from src.rubiks_solver import solver 
 from vision import cam
 
 

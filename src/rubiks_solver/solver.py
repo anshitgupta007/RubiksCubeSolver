@@ -1,5 +1,5 @@
-from src import cube
-from src import hash
+from rubiks_solver import cube
+from rubiks_solver import hash
 import time
 import os
 from collections import defaultdict
@@ -90,9 +90,8 @@ def solve(mycube):
         if not table:
             raise ValueError(f"Pattern database at {filename} loaded but is empty.")
         return table
-    # NOTE: folder on disk is "Databases" (capital D) -- must match exactly,
-    # since this is case-sensitive on Linux/macOS.
-    data_dir = os.path.join(os.path.dirname(__file__), "..", "data", "Databases")
+    
+    data_dir = os.path.join(os.path.dirname(__file__), "data", "Databases")
     lookup_table0 = load_lookup_table(os.path.join(data_dir, "G0.txt"))
     lookup_table1 = load_lookup_table(os.path.join(data_dir, "G1.txt"))
     lookup_table2 = load_lookup_table(os.path.join(data_dir, "G2.txt"))
